@@ -9,7 +9,7 @@ This file shows all updates after "Main Release" (1.0)
 
 ### Older Updates (1.1+)
 
-The following chart is about the newest update to Get.AI (repo) which is Version 1.1
+The following chart is shows any updates before the current update.
 
 | Version | Info | Additions | Beta / Demo / Test |
 | ------- | ------------------ | ------------------ | ------------------|
