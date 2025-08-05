@@ -17,3 +17,12 @@ The following chart is shows any updates before the current update.
 | 1.2.0   | 🔨 Title Fix 💬 | Fixed The "Title" in the "index" | No, Full Release | 8/5/2025 |
 | 1.1.0   | 🔨 Button Fix 🌐 | Fixed Buttons on Overlay | No, Full Release | 8/5/2025 |
 
+### Aditional Info (for each update)
+
+| Version | Aditional Info |
+| ------- | -------------- |
+| b1.3.1 | Added a single logo to the app for ChatGPT |
+| b1.3.0 | Added the filtering feature to searching (Type , A-Z / Z-A) |
+| 1.2.0 | Fixed the title of the app that appears when opened in a browser. |
+| 1.1.0 | Fixed the issues of the action buttons for each card. |
+| 1.0.0 | The release of the app, this was the base version of Get.AI |
