@@ -2,12 +2,12 @@
 
 This file shows all updates after "Main Release" (1.0)
 
-## This Update (1.2)
+## This Update (1.3)
 | Version | Info | Additions | Beta / Demo / Test |
 | ------- | ------------------ | ------------------ | ------------------|
 | b1.3.0   | 🔨 Sorting & Filter Update 🥇 | Adds Filters and Improves Buttons | Yes, Beta Test Version |
 
-### Older Updates (1.1)
+### Older Updates (1.1+)
 
 The following chart is about the newest update to Get.AI (repo) which is Version 1.1
 
