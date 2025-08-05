@@ -2,12 +2,12 @@
 
 This file shows all updates after "Main Release" (1.0)
 
-## This Update (1.4)
+## This Update (1.3.1)
 | Version | Info | Additions | Beta / Demo / Test | Release Date |
 | ------- | ------------------ | ------------------ | ------------------|---------------|
-| b1.4.0   | 🔨 Logo and Icon Update 🔣 | Now Uses The Logo of The AI | Yes, Beta Test Version | 8/5/2025
+| b1.3.1   | 🔨 Logo and Icon Update 🔣 | Added ChatGPT's Logo | Yes, Beta Test Version | 8/5/2025
 
-### Older Updates (1.1-1.3)
+### Older Updates (1.1.0-1.3.0)
 
 The following chart is shows any updates before the current update.
 
