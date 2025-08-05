@@ -14,6 +14,8 @@ The following chart shows which versions have safety features build-in.
 | 1.1.0   | :white_check_mark: | HTTPS |
 | 1.0.0   | :x:                | None, Local FIle |
 
+*HTTPS is available on the OFFICIAL site. (Linked in the repo's description.)
+
 ## Reporting a Vulnerability
 
 To Report ANY Vulnerability, Please go to the Google Form linked below.
