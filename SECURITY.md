@@ -6,12 +6,12 @@ This app uses HTTPS Connections and DOES NOT STORE ANY DATA after the user leave
 
 The following chart shows which versions have safety features build-in.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| b1.3.0   | :white_check_mark: |
-| 1.2.0   | :white_check_mark: |
-| 1.1.0   | :white_check_mark: |
-| 1.0.0   | :x:                |
+| Version | Supported          | Main Security Practice |
+| ------- | ------------------ | ------------------ |
+| b1.3.0   | :white_check_mark: | HTTPS |
+| 1.2.0   | :white_check_mark: | HTTPS |
+| 1.1.0   | :white_check_mark: | HTTPS |
+| 1.0.0   | :x:                | None, Local FIle |
 
 ## Reporting a Vulnerability
 
