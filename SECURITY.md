@@ -8,7 +8,7 @@ The following chart shows which versions have safety features build-in.
 
 | Version | Supported          | Main Security Practice |
 | ------- | ------------------ | ------------------ |
-| b1.4.0   | :white_check_mark: | HTTPS |
+| b1.3.1   | :white_check_mark: | HTTPS |
 | b1.3.0   | :white_check_mark: | HTTPS |
 | 1.2.0   | :white_check_mark: | HTTPS |
 | 1.1.0   | :white_check_mark: | HTTPS |
