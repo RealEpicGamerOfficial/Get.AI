@@ -1,0 +1,3 @@
+[Notice!] THIS IS NOT AN AI OR AI PLATFORM. THIS ONLY HOST A SEARCH ENGINE FOR AI AND LINKS AI PLATFORMS.  
+
+Get.AI (Get AI App) Made for running as site. (link)
