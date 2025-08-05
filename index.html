@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get AI; The AI Finder by AKMBO Labs</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            /* Allow vertical scrolling */
+            overflow-y: auto;
+            /* Keep horizontal hidden as the design is responsive */
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar Styling for WebKit browsers */
+        body::-webkit-scrollbar {
+            width: 12px; /* Width of the scrollbar */
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #1a1a1a; /* Dark background for the scrollbar track */
+            border-radius: 10px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #4a4a4a; /* Darker thumb color */
+            border-radius: 10px;
+            border: 3px solid #1a1a1a; /* Padding around the thumb */
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background-color: #6a6a6a; /* Lighter thumb on hover */
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animate-gradient-shift {
+            background-size: 200% 200%;
+            animation: gradientShift 20s ease infinite;
+        }
+
+        @keyframes blob {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+
+        .animate-blob {
+            animation: blob 10s infinite cubic-bezier(0.6, 0.01, 0.3, 0.9);
+        }
+
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+        .animation-delay-6000 { animation-delay: 6s; }
+        .animation-delay-8000 { animation-delay: 8s; }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animation-delay-500 { animation-delay: 0.5s; }
+        .animation-delay-1000 { animation-delay: 1s; }
+
+        @keyframes slideInRight {
+            0% { transform: translateX(100%); opacity: 0; }
+            10% { transform: translateX(0); opacity: 1; }
+            90% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(100%); opacity: 0; }
+        }
+
+        .animate-slide-in-right {
+            animation: slideInRight 2.5s ease-out forwards;
+        }
+
+        /* Custom styles for select arrow */
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3CS/VG%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.5em;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center p-4 bg-gradient-to-br from-gray-900 via-zinc-950 to-black text-white relative animate-gradient-shift">
+
+    <!-- Animated background circles -->
+    <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-600 rounded-full mix-blend-screen filter blur-3xl opacity-15 animate-blob animation-delay-2000"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-600 rounded-full mix-blend-screen filter blur-3xl opacity-15 animate-blob animation-delay-4000"></div>
+    <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-pink-600 rounded-full mix-blend-screen filter blur-3xl opacity-15 animate-blob animation-delay-6000"></div>
+    <div class="absolute top-0 left-0 w-96 h-96 bg-indigo-600 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-8000"></div>
+
+    <!-- Copy Message Container -->
+    <div id="copy-message" class="fixed top-6 right-6 bg-green-600 text-white px-5 py-3 rounded-lg shadow-xl z-50 hidden"></div>
+
+    <!-- Header -->
+    <h1 class="text-6xl md:text-7xl font-extrabold text-center mb-6 drop-shadow-2xl relative z-10 animate-fade-in-up">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-300">
+            Get AI
+        </span>
+    </h1>
+    <p class="text-xl md:text-2xl text-center mb-12 max-w-3xl opacity-90 relative z-10 animate-fade-in-up animation-delay-500">
+        The AI Finder, owned and managed by AKMBO Labs. Your gateway to the most innovative Artificial Intelligence tools, designed to spark creativity and boost productivity.
+    </p>
+
+    <!-- Search and Filter Bar -->
+    <div class="w-full max-w-2xl mb-10 flex flex-col sm:flex-row gap-4 relative z-10 animate-fade-in-up animation-delay-1000">
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search AI tools by name, description, or category..."
+            class="flex-grow p-4 rounded-xl bg-gray-800 bg-opacity-70 backdrop-filter backdrop-blur-lg border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-70 transition duration-300 ease-in-out shadow-lg text-lg"
+        />
+        <select
+            id="category-select"
+            class="p-4 rounded-xl bg-gray-800 bg-opacity-70 backdrop-filter backdrop-blur-lg border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-70 transition duration-300 ease-in-out shadow-lg text-lg"
+        >
+            <!-- Options will be dynamically added here by JavaScript -->
+        </select>
+    </div>
+
+    <!-- AI Tools Grid -->
+    <div id="ai-tools-grid" class="w-full max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 relative z-10">
+        <!-- AI Cards will be dynamically added here by JavaScript -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 text-center text-white text-opacity-60 text-base relative z-10">
+        <p>Copyright (C) 2025 AKMBO Labs Inc.</p>
+    </footer>
+
+    <script>
+        // Data for AI tools
+        const allAiTools = [
+            {
+                id: 1,
+                name: 'ChatGPT',
+                description: 'A powerful AI chatbot for conversational AI, content generation, and more.',
+                url: 'https://chat.openai.com/',
+                category: 'Text Generation',
+                icon: '💬'
+            },
+            {
+                id: 2,
+                name: 'Google Gemini',
+                description: 'Google\'s most capable AI model, offering advanced reasoning, coding, and multimodal capabilities.',
+                url: 'https://gemini.google.com/',
+                category: 'Multimodal AI',
+                icon: '✨'
+            },
+            {
+                id: 3,
+                name: 'Midjourney',
+                description: 'An independent research lab exploring new mediums of thought and expanding the imaginative powers of the human species.',
+                url: 'https://www.midjourney.com/',
+                category: 'Image Generation',
+                icon: '�️'
+            },
+            {
+                id: 4,
+                name: 'DALL-E 3',
+                description: 'OpenAI\'s advanced image generation model, creating images from text descriptions.',
+                url: 'https://openai.com/dall-e-3/',
+                category: 'Image Generation',
+                icon: '🎨'
+            },
+            {
+                id: 5,
+                name: 'Stable Diffusion',
+                description: 'A latent text-to-image diffusion model capable of generating photo-realistic images given any text input.',
+                url: 'https://stability.ai/stable-diffusion/',
+                category: 'Image Generation',
+                icon: '📸'
+            },
+            {
+                id: 6,
+                name: 'Claude',
+                description: 'Anthropic\'s next-generation AI assistant for a wide range of tasks, focusing on safety and helpfulness.',
+                url: 'https://www.anthropic.com/index/claude/',
+                category: 'Text Generation',
+                icon: '✍️'
+            },
+            {
+                id: 7,
+                name: 'GitHub Copilot',
+                description: 'An AI pair programmer that helps you write code faster and with less effort.',
+                url: 'https://github.com/features/copilot/',
+                category: 'Coding AI',
+                icon: '💻'
+            },
+            {
+                id: 8,
+                name: 'Perplexity AI',
+                description: 'An AI-powered search engine that provides direct answers and citations, not just links.',
+                url: 'https://www.perplexity.ai/',
+                category: 'Research AI',
+                icon: '🔍'
+            },
+            {
+                id: 9,
+                name: 'RunwayML',
+                description: 'A platform for creative AI tools, including text-to-video, image editing, and more.',
+                url: 'https://runwayml.com/',
+                category: 'Video/Creative AI',
+                icon: '🎬'
+            },
+            {
+                id: 10,
+                name: 'ElevenLabs',
+                description: 'AI voice generator and text to speech software for realistic voiceovers.',
+                url: 'https://elevenlabs.io/',
+                category: 'Audio AI',
+                icon: '🗣️'
+            },
+            {
+                id: 11,
+                name: 'Synthesia',
+                description: 'Create AI videos from text in minutes. No cameras or studios needed.',
+                url: 'https://www.synthesia.io/',
+                category: 'Video/Creative AI',
+                icon: '🎥'
+            },
+            {
+                id: 12,
+                name: 'DeepMind',
+                description: 'A leading AI research lab, pushing the boundaries of AI capabilities.',
+                url: 'https://deepmind.google/',
+                category: 'Research AI',
+                icon: '🧠'
+            },
+            {
+                id: 13,
+                name: 'Tabnine',
+                description: 'AI code completion tool that helps developers write code faster.',
+                url: 'https://www.tabnine.com/',
+                category: 'Coding AI',
+                icon: '⌨️'
+            },
+            {
+                id: 14,
+                name: 'Otter.ai',
+                description: 'AI meeting assistant that records audio, writes notes, and generates summaries.',
+                url: 'https://otter.ai/',
+                category: 'Productivity AI',
+                icon: '📝'
+            },
+            {
+                id: 15,
+                name: 'Descript',
+                description: 'All-in-one video and podcast editing with AI features like transcription and filler word removal.',
+                url: 'https://www.descript.com/',
+                category: 'Audio AI',
+                icon: '🎙️'
+            },
+        ];
+
+        // Global state variables
+        let searchTerm = '';
+        let selectedCategory = 'All';
+
+        const aiToolsGrid = document.getElementById('ai-tools-grid');
+        const searchInput = document.getElementById('search-input');
+        const categorySelect = document.getElementById('category-select');
+        const copyMessageElement = document.getElementById('copy-message');
+
+        // Function to copy URL to clipboard
+        function copyToClipboard(url) {
+            const el = document.createElement('textarea');
+            el.value = url;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            copyMessageElement.textContent = 'URL copied!';
+            copyMessageElement.classList.remove('hidden');
+            copyMessageElement.classList.add('animate-slide-in-right');
+            setTimeout(() => {
+                copyMessageElement.classList.remove('animate-slide-in-right');
+                copyMessageElement.classList.add('hidden');
+            }, 2500); // Duration of animation + some buffer
+        }
+
+        // Function to render AI cards
+        function renderAICards() {
+            // Filter AI tools based on current search term and selected category
+            const filteredAiTools = allAiTools.filter(tool => {
+                const matchesSearch =
+                    tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    tool.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    tool.category.toLowerCase().includes(searchTerm.toLowerCase());
+
+                const matchesCategory =
+                    selectedCategory === 'All' || tool.category === selectedCategory;
+
+                return matchesSearch && matchesCategory;
+            });
+
+            aiToolsGrid.innerHTML = ''; // Clear existing cards
+
+            if (filteredAiTools.length > 0) {
+                filteredAiTools.forEach(tool => {
+                    const cardHtml = `
+                        <div class="relative bg-gray-800 bg-opacity-70 backdrop-filter backdrop-blur-xl rounded-2xl p-7 shadow-2xl hover:shadow-3xl hover:-translate-y-2 transition-all duration-400 ease-in-out border border-gray-700 group flex flex-col justify-between transform hover:ring-4 hover:ring-blue-500 hover:ring-opacity-50">
+                            <div>
+                                <div class="flex items-center mb-4">
+                                    <span class="text-5xl mr-5 transform group-hover:rotate-12 transition-transform duration-300">${tool.icon}</span>
+                                    <h2 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-blue-200 group-hover:from-teal-100 group-hover:to-blue-100 transition-colors duration-300">
+                                        ${tool.name}
+                                    </h2>
+                                </div>
+                                <p class="text-gray-200 text-opacity-85 mb-5 text-lg leading-relaxed">
+                                    ${tool.description}
+                                </p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center text-sm text-gray-300 text-opacity-75 mt-5 pt-5 border-t border-gray-700">
+                                <span class="px-4 py-1.5 bg-gray-700 bg-opacity-50 rounded-full text-sm font-semibold mb-3 sm:mb-0 shadow-inner">
+                                    ${tool.category}
+                                </span>
+                                <div class="flex items-center gap-3">
+                                    <button
+                                        class="copy-btn flex items-center justify-center p-3 rounded-full bg-gray-700 bg-opacity-50 hover:bg-opacity-70 transition-colors duration-200 transform hover:scale-110 active:scale-90 focus:outline-none focus:ring-2 focus:ring-teal-400"
+                                        title="Copy URL"
+                                        data-url="${tool.url}"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                                        </svg>
+                                    </button>
+                                    <a
+                                        href="${tool.url}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="flex items-center justify-center px-4 py-2 bg-gradient-to-r from-teal-500 to-blue-500 rounded-full text-white font-semibold shadow-md hover:shadow-lg hover:from-teal-400 hover:to-blue-400 transition-all duration-300 ease-in-out transform hover:scale-105"
+                                        title="Visit Website"
+                                    >
+                                        Visit Site <span class="ml-2">&rarr;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    aiToolsGrid.insertAdjacentHTML('beforeend', cardHtml);
+                });
+
+                // Attach event listeners to newly created copy buttons
+                document.querySelectorAll('.copy-btn').forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const url = event.currentTarget.dataset.url;
+                        copyToClipboard(url);
+                    });
+                });
+
+            } else {
+                aiToolsGrid.innerHTML = `
+                    <div class="col-span-full text-center text-2xl text-white opacity-80 p-10 rounded-xl bg-gray-800 bg-opacity-70 backdrop-filter backdrop-blur-md shadow-2xl border border-gray-700">
+                        No AI tools found matching your criteria. Try a different search or filter!
+                    </div>
+                `;
+            }
+        }
+
+        // Function to populate category dropdown
+        function populateCategories() {
+            const categories = ['All', ...new Set(allAiTools.map(tool => tool.category))];
+            categorySelect.innerHTML = ''; // Clear existing options
+
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                option.classList.add('bg-gray-900', 'text-white');
+                categorySelect.appendChild(option);
+            });
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('input', (event) => {
+            searchTerm = event.target.value;
+            renderAICards();
+        });
+
+        categorySelect.addEventListener('change', (event) => {
+            selectedCategory = event.target.value;
+            renderAICards();
+        });
+
+        // Initial render on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            populateCategories();
+            renderAICards();
+        });
+    </script>
+</body>
+</html>
+�
