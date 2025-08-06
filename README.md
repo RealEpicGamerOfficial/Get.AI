@@ -5,7 +5,7 @@ Devolped by RealEpicGamerOfficial | Anyone can use or fork this repo, BUT MUST G
 [Notice!] THIS IS NOT AN AI OR AI PLATFORM. THIS ONLY HOST A SEARCH ENGINE FOR AI AND LINKS AI PLATFORMS. 
 
 ## Licence
-This software is CC BY-NC-ND (Creative Commons Attribution-NonCommercial-NoDerivatives)
+This software is CC BY-NC-SA (Creative Commons Attribution-NonCommercial-ShareAlike)
 
 ## Suported Operating Systems and Conditions
 Get.AI (Get AI App) Made for running as site, (https://realepicgamerofficial.github.io/Get.AI/), or in a browser on the following Operating Systems. ChromeOS, Windows 10/11, Android.
