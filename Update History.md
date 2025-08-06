@@ -22,6 +22,7 @@ The following chart is shows any updates before the current update.
 
 | Version | Aditional Info |
 | ------- | -------------- |
+| 1.4.0 | Fixed all problems, misspelling (etc.) in the description (in-app) and copyright. (in-app) |
 | b1.3.1 | Added a single logo to the app for ChatGPT |
 | b1.3.0 | Added the filtering feature to searching (Type , A-Z / Z-A) |
 | 1.2.0 | Fixed the title of the app that appears when opened in a browser. |
