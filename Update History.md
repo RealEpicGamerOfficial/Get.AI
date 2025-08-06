@@ -2,7 +2,7 @@
 
 This file shows all updates after "Main Release" (1.0)
 
-## This Update (1.3.1)
+## This Update (1.4.0)
 | Version | Info | Additions | Beta / Demo / Test | Release Date |
 | ------- | ------------------ | ------------------ | ------------------|---------------|
 | 1.4.0   | 🔨 Description and Copyright Fix 💬 | Fixed the issues with the incorrect description and errors in the copyright lock. | No, Full Release | 8/6/2025 |
