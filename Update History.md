@@ -7,7 +7,7 @@ This file shows all updates after "Main Release" (1.0)
 | ------- | ------------------ | ------------------ | ------------------|---------------|
 | 1.4.0   | 🔨 Description and Copyright Fix 💬 | Fixed the issues with the incorrect description and errors in the copyright lock. | No, Full Release | 8/6/2025 |
 
-### Older Updates (1.1.0-1.3.0)
+### Older Updates (1.1.0-1.3.1)
 
 The following chart is shows any updates before the current update.
 
